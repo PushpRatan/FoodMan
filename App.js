@@ -1,7 +1,13 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const heading1 = React.createElement(
   "h1",
   {
     id: "head1",
+    style: {
+      textAlign: "center",
+    },
   },
   "Heading 1"
 );
@@ -9,7 +15,7 @@ const heading1 = React.createElement(
 const heading2 = React.createElement(
   "h2",
   {
-    id: "head1",
+    id: "head2",
     style: {
       color: "blue",
     },
