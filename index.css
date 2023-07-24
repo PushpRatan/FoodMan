@@ -1,3 +1,65 @@
-#head1{
-    color: rgb(255, 0, 0);
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: black;
+    align-items: center;
+    padding: 15px 100px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: white;
+}
+
+.header > a> h1{
+    color: white;
+}
+
+.header > ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 1.5em;
+}
+
+a{
+    text-decoration: none;
+}
+
+.restraunts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    width: 300px;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    border-radius: 10px;
+
+}
+
+.card:hover{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.card > img{
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+
+.cardDetails>*{
+    padding: 3px 0;
+}
+
+.cardDetails{
+    padding: 10px 0;
 }
