@@ -1,19 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RestrauntCard from "./RestrauntCard";
 import { RestaurantList } from "../config";
+import Shimmer from "./shimmer";
 
 const filtered = (searchText, restaurants) => {
-  return RestaurantList.filter((restaurant) =>
-    restaurant.data.name.includes(searchText)
+  return restaurants.filter((restaurant) =>
+    restaurant?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
   );
 };
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const [restraunts, setRestraunts] = useState(RestaurantList);
-  console.log(restraunts);
+  const [filterdRestraunts, setFilteredRestraunts] = useState([]);
+  const [allRestraunts, setAllRestraunts] = useState([]);
 
-  return (
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    try {
+      const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+      const json = await data.json();
+      console.log(json);
+      setFilteredRestraunts(
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setAllRestraunts(
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } catch (error) {
+      console.log(`Alas! we got an Error: ${error}`);
+    }
+  }
+
+  if (!allRestraunts) return null;
+
+  return allRestraunts.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="searchContainer">
         <input
@@ -29,18 +58,24 @@ const Body = () => {
           className="searchButton"
           onClick={() => {
             //filter the data
-            const filteredData = filtered(searchText, restraunts);
+            const filteredData = filtered(searchText, allRestraunts);
             //update the data
-            setRestraunts(filteredData);
+            setFilteredRestraunts(filteredData);
           }}
         >
           Search
         </button>
       </div>
       <div className="restraunts">
-        {restraunts.map((restraunt) => {
-          return <RestrauntCard key={restraunt.data.id} {...restraunt.data} />;
-        })}
+        {filterdRestraunts.length == 0 ? (
+          <h1>No Restraunt found</h1>
+        ) : (
+          filterdRestraunts?.map((restraunt) => {
+            return (
+              <RestrauntCard key={restraunt?.info?.id} {...restraunt.info} />
+            );
+          })
+        )}
       </div>
     </>
   );

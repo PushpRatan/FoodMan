@@ -16,6 +16,8 @@ const Header = () => {
         <li>Contact</li>
         <li>Cart</li>
       </ul>
+      <button>Login</button>
+      <button>Logout</button>
     </div>
   );
 };

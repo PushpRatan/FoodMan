@@ -2,12 +2,12 @@ import { base_URL } from "../config";
 
 const RestrauntCard = ({
   cloudinaryImageId,
-  name,
-  cuisines,
-  area,
-  lastMileTravelString,
-  costForTwoString,
-  avgRating,
+  name = "",
+  cuisines = [],
+  area = "",
+  lastMileTravelString = "",
+  costForTwoString = "",
+  avgRating = "",
 }) => {
   return (
     <div className="card">
