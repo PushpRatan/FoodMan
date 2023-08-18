@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const Title = () => (
   <a href="/">
     <h1 id="head1" key="h1">
@@ -7,6 +9,7 @@ const Title = () => (
 );
 
 const Header = () => {
+  const [auth, setAuth] = useState(false);
   return (
     <div className="header">
       <Title />
@@ -16,8 +19,15 @@ const Header = () => {
         <li>Contact</li>
         <li>Cart</li>
       </ul>
-      <button>Login</button>
-      <button>Logout</button>
+      {auth ? (
+        <button className="logBtn" onClick={() => setAuth(false)}>
+          Logout
+        </button>
+      ) : (
+        <button className="logBtn" onClick={() => setAuth(true)}>
+          Login
+        </button>
+      )}
     </div>
   );
 };
