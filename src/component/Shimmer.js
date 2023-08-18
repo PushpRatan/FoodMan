@@ -1,7 +1,7 @@
 const Shimmer = () => {
   return (
     <div className="restraunts">
-      {Array(10)
+      {Array(15)
         .fill("")
         .map((e, index) => (
           <div key={index} className="shimmerCard">

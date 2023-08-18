@@ -19,13 +19,13 @@
   -- Copyright
 */
 
-import React from "react";
+import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
 import Body from "./component/Body";
 import Footer from "./component/Footer";
 import About from "./component/About";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./component/Error";
 
 // App Layout
@@ -33,7 +33,7 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </>
   );
@@ -43,12 +43,18 @@ const appRouter= createBrowserRouter([
   {
     path:"/",
     element: <AppLayout />,
-    errorElement: <Error />
+    errorElement: <Error />,
+    children: [
+      {
+        path:"/",
+        element: <Body />
+      },
+      {
+        path:"/about",
+        element: <About />
+      }
+    ]
   },
-  {
-    path:"/about",
-    element: <About />
-  }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

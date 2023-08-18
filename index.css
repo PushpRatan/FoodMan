@@ -99,3 +99,7 @@ a{
     background-color: #ADC4CE;
     margin-top: 10px;
 }
+
+.navLinks{
+    color: inherit;
+}

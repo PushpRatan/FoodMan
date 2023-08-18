@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Title = () => (
   <a href="/">
@@ -14,10 +15,10 @@ const Header = () => {
     <div className="header">
       <Title />
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Cart</li>
+        <li><Link to={"/"} className="navLinks">Home</Link></li>
+        <li><Link to={"/about"} className="navLinks">About</Link></li>
+        <li><Link to={"/contact"} className="navLinks">Contact</Link></li>
+        <li><Link to={"/cart"} className="navLinks">Cart</Link></li>
       </ul>
       {auth ? (
         <button className="logBtn" onClick={() => setAuth(false)}>
