@@ -27,6 +27,8 @@ import Footer from "./component/Footer";
 import About from "./component/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./component/Error";
+import Contact from "./component/Contact";
+import RestrauntMenu from "./component/RestrauntMenu";
 
 // App Layout
 const AppLayout = () => {
@@ -52,6 +54,14 @@ const appRouter= createBrowserRouter([
       {
         path:"/about",
         element: <About />
+      },
+      {
+        path:"/contact",
+        element: <Contact />
+      },
+      {
+        path:"/restraunt/:id",
+        element: <RestrauntMenu />
       }
     ]
   },

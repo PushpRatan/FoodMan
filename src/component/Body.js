@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import RestrauntCard from "./RestrauntCard";
 import { RestaurantList } from "../config";
-import Shimmer from "./shimmer";
+import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const filtered = (searchText, restaurants) => {
   return restaurants.filter((restaurant) =>
@@ -72,7 +73,7 @@ const Body = () => {
         ) : (
           filterdRestraunts?.map((restraunt) => {
             return (
-              <RestrauntCard key={restraunt?.info?.id} {...restraunt.info} />
+              <Link key={restraunt?.info?.id} to={`/restraunt/${restraunt?.info?.id}`}><RestrauntCard key={restraunt?.info?.id} {...restraunt.info} /></Link>
             );
           })
         )}

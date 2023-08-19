@@ -100,6 +100,12 @@ a{
     margin-top: 10px;
 }
 
-.navLinks{
+a{
     color: inherit;
+}
+
+
+.menu{
+    display: flex;
+    gap: 50px;
 }
