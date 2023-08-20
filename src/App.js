@@ -29,6 +29,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./component/Error";
 import Contact from "./component/Contact";
 import RestrauntMenu from "./component/RestrauntMenu";
+import Profile from "./component/Profile";
 
 // App Layout
 const AppLayout = () => {
@@ -53,7 +54,7 @@ const appRouter= createBrowserRouter([
       },
       {
         path:"/about",
-        element: <About />
+        element: <About />,
       },
       {
         path:"/contact",
