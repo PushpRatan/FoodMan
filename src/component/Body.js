@@ -3,12 +3,7 @@ import RestrauntCard from "./RestrauntCard";
 import { RestaurantList } from "../config";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-const filtered = (searchText, restaurants) => {
-  return restaurants.filter((restaurant) =>
-    restaurant?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-  );
-};
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -37,6 +32,11 @@ const Body = () => {
     } catch (error) {
       console.log(`Alas! we got an Error: ${error}`);
     }
+  }
+
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h1>Tbh, You are offline buddy</h1>;
   }
 
   if (!allRestraunts) return null;
@@ -73,7 +73,12 @@ const Body = () => {
         ) : (
           filterdRestraunts?.map((restraunt) => {
             return (
-              <Link key={restraunt?.info?.id} to={`/restraunt/${restraunt?.info?.id}`}><RestrauntCard key={restraunt?.info?.id} {...restraunt.info} /></Link>
+              <Link
+                key={restraunt?.info?.id}
+                to={`/restraunt/${restraunt?.info?.id}`}
+              >
+                <RestrauntCard key={restraunt?.info?.id} {...restraunt.info} />
+              </Link>
             );
           })
         )}

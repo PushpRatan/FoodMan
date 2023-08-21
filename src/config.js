@@ -1,5 +1,8 @@
-export const base_URL =
+export const BASE_URL =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+
+export const FETCH_MENU_URL =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.5135084&lng=88.402884&restaurantId=";
 
 export const RestaurantList = [
   {

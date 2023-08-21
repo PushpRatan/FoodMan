@@ -1,4 +1,4 @@
-import { base_URL } from "../config";
+import { BASE_URL } from "../config";
 
 const RestrauntCard = ({
   cloudinaryImageId,
@@ -11,7 +11,7 @@ const RestrauntCard = ({
 }) => {
   return (
     <div className="card">
-      <img src={base_URL + cloudinaryImageId} />
+      <img src={BASE_URL + cloudinaryImageId} />
       <div className="cardDetails">
         <h2 className="cardTitle">{name}</h2>
         <h3 className="type">{cuisines.join(", ")}</h3>
