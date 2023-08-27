@@ -4,6 +4,7 @@ import { RestaurantList } from "../config";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { filtered } from "../utils/helper";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -45,29 +46,31 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="searchContainer">
-        <input
-          type="text"
-          className="searchInput"
-          placeholder="Search"
-          value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        />
-        <button
-          className="searchButton"
-          onClick={() => {
-            //filter the data
-            const filteredData = filtered(searchText, allRestraunts);
-            //update the data
-            setFilteredRestraunts(filteredData);
-          }}
-        >
-          Search
-        </button>
+      <div>
+        <div className="w-fit m-auto">
+          <input
+            type="text"
+            className="w-96 bg-gray-100 rounded-l-2xl py-2 px-4 mb-9"
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            className="bg-yellow-100 py-2 px-4 rounded-r-2xl font-semibold text-gray-600"
+            onClick={() => {
+              //filter the data
+              const filteredData = filtered(searchText, allRestraunts);
+              //update the data
+              setFilteredRestraunts(filteredData);
+            }}
+          >
+            Search
+          </button>
+        </div>
       </div>
-      <div className="restraunts">
+      <div className="flex flex-wrap justify-center">
         {filterdRestraunts.length == 0 ? (
           <h1>No Restraunt found</h1>
         ) : (
