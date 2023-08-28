@@ -29,7 +29,6 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./component/Error";
 import Contact from "./component/Contact";
 import RestrauntMenu from "./component/RestrauntMenu";
-import Profile from "./component/Profile";
 
 // App Layout
 const AppLayout = () => {
@@ -42,31 +41,31 @@ const AppLayout = () => {
   );
 };
 
-const appRouter= createBrowserRouter([
+const appRouter = createBrowserRouter([
   {
-    path:"/",
+    path: "/",
     element: <AppLayout />,
     errorElement: <Error />,
     children: [
       {
-        path:"/",
-        element: <Body />
+        path: "/",
+        element: <Body />,
       },
       {
-        path:"/about",
+        path: "/about",
         element: <About />,
       },
       {
-        path:"/contact",
-        element: <Contact />
+        path: "/contact",
+        element: <Contact />,
       },
       {
-        path:"/restraunt/:id",
-        element: <RestrauntMenu />
-      }
-    ]
+        path: "/restraunt/:id",
+        element: <RestrauntMenu />,
+      },
+    ],
   },
-])
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter} />);
