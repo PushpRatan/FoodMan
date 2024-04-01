@@ -18,7 +18,7 @@ const RestrauntCard = ({
         <h4 className="text-sm pb-[2px]">{avgRating} star</h4>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default RestrauntCard;

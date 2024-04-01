@@ -25,7 +25,7 @@ const About = () => {
       <Section
         title={"About Me"}
         desc={
-          "I am Pushp Ratan. A trained full stack developer with ReactJs, Java, JavaScript, Spring Boot, and MySQL"
+          "Hi, I am Pushp Ratan, a trained full-stack developer with Acciojobs. I am proficient in MERN Stack development. And Java-Fullstack Development. Currently, I am in the phase of learning Next.js and Typescript to enhance my skills."
         }
         isVisible={visibleSec === "about"}
         setIsVisible={() => {
@@ -48,9 +48,15 @@ const About = () => {
 
       <Section
         title={"Experience"}
-        desc={
-          "Completed two internships in techmihirnaik and softrate chennai. Built A resume builder and a Vaacination booking System."
-        }
+        desc={`During my internship at Techmihirnaik as a Frontend Developer intern, I
+          was part of the team that handled the Frontend and Backend of the
+          product: Shopica an e-commerce web application that the company
+          was building. I worked in ReactJS and NodeJs. Created user interfaces,
+          and identified various bugs like the responsiveness and the component
+          alignment, etc. Also added search functionality, and product carousals,
+          and also worked on different components of different sections. Added
+          product description accordion and also got familiar with test-driven
+          development.`}
         isVisible={visibleSec === "experience"}
         setIsVisible={() => {
           visibleSec === "experience"

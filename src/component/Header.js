@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Title = () => (
@@ -11,6 +12,7 @@ const Title = () => (
 
 const Header = () => {
   const [auth, setAuth] = useState(false);
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex justify-between gap-3 bg-black items-center py-4 px-24 text-white mb-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
       <Title />
@@ -33,6 +35,9 @@ const Header = () => {
         <li>
           <Link to={"/cart"} className="navLinks">
             Cart
+            <span className="m-1 align-top bg-white text-black rounded-full box-border text-sm px-[9px] py-[3px]">
+              {cartItems.length}
+            </span>
           </Link>
         </li>
       </ul>
