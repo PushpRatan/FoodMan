@@ -1,7 +1,6 @@
 {
   "name": "namaste-react",
   "version": "1.0.0",
-  "proxy": "https://www.swiggy.com/",
   "description": "Disturb mat kar, React padh rhe hai.",
   "scripts": {
     "start": "parcel index.html",
